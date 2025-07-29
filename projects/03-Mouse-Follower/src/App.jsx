@@ -4,6 +4,7 @@ const FollowMouse = () => {
   const [enabled, setEnabled] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
+  // useEffect para manejar el movimiento del mouse
   useEffect(() => {
     console.log('Proyecto 3: Mouse Follower');
     const handleMove = (event) => {
@@ -18,6 +19,15 @@ const FollowMouse = () => {
     // Cleanup, cuando el componente se desmonta o cuando 'enabled' cambia
     return () => {
       window.removeEventListener('pointermove', handleMove);
+    }
+  }, [enabled]);
+
+  // useEffect para manejar la clase 'no-cursor' en el body
+  useEffect(() => {
+    document.body.classList.toggle('no-cursor', enabled);
+
+    return () => {
+      document.body.classList.remove('no-cursor');
     }
   }, [enabled]);
 
