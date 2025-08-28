@@ -19,11 +19,11 @@ function ListOfMovies({ movies }) {
 function NoMoviesResults() {
   return (
     <p>No se encontraron películas en esta búsqueda.</p>
-  );
+  )
 }
 
 export function Movies({ movies }) {
-  const hasMovies = movies && movies.length > 0;
+  const hasMovies = movies && movies.length > 0
   return (
     hasMovies 
     ? <ListOfMovies movies={movies} /> 

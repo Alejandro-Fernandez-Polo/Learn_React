@@ -21,17 +21,17 @@ export function useMovies({ search, sort }) {
     } finally {
       setLoading(false)
     }
-  }, []);
+  }, [])
 
   const sortedMovies = useMemo(() => {
     return sort
       ? [...movies].sort((a, b) => a.title.localeCompare(b.title))
-      : movies;
+      : movies
   }, [movies, sort])
 
   return {
     movies: sortedMovies,
     loading,
     getMovies,
-  };
+  }
 }

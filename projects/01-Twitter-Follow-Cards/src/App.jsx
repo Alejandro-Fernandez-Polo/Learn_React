@@ -1,5 +1,5 @@
-import './App.css';
-import { TwitterFollowCard } from './TwitterFollowCard.jsx';
+import './App.css'
+import { TwitterFollowCard } from './TwitterFollowCard.jsx'
 
 export function App() {
 
@@ -7,7 +7,7 @@ export function App() {
         { userName: 'luispolopolo', name: 'Luis Polo Polo', initialIsFollowing: true },
         { userName: 'junicode', name: 'Juan Carlos', initialIsFollowing: false },
         { userName: 'pepelote', name: 'Pepe Lote', initialIsFollowing: false }
-    ];
+    ]
     return (
         <section className="App">
             {users.map( user => { 

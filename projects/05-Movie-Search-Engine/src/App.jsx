@@ -1,37 +1,37 @@
-import "./App.css";
-import { Movies } from "./Components/Movies";
-import { useMovies } from "./hooks/useMovies.js";
-import { useSearch } from "./hooks/useSearch.js";
-import { useCallback, useState } from "react";
-import debounce from "just-debounce-it";
+import "./App.css"
+import { Movies } from "./Components/Movies"
+import { useMovies } from "./hooks/useMovies.js"
+import { useSearch } from "./hooks/useSearch.js"
+import { useCallback, useState } from "react"
+import debounce from "just-debounce-it"
 
 function App() {
-  const [sort, setSort] = useState(false);
+  const [sort, setSort] = useState(false)
 
-  const { search, setSearch, error } = useSearch();
-  const { movies, loading, getMovies } = useMovies({ search, sort });
+  const { search, setSearch, error } = useSearch()
+  const { movies, loading, getMovies } = useMovies({ search, sort })
 
   const debouncedGetMovies = useCallback(
     debounce((search) => {
-      getMovies({ search });
+      getMovies({ search })
     }, 300),
     []
-  );
+  )
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    getMovies({ search });
-  };
+    event.preventDefault()
+    getMovies({ search })
+  }
 
   const handleSort = () => {
-    setSort(!sort);
-  };
+    setSort(!sort)
+  }
 
   const handleChange = (event) => {
-    const newSearch = event.target.value;
-    setSearch(newSearch);
-    debouncedGetMovies(newSearch);
-  };
+    const newSearch = event.target.value
+    setSearch(newSearch)
+    debouncedGetMovies(newSearch)
+  }
 
   return (
     <div className="page">
@@ -58,7 +58,7 @@ function App() {
         {loading ? <p>Cargando...</p> : <Movies movies={movies} />}
       </main>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
